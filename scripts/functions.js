@@ -1,6 +1,6 @@
 const simonSays = [];
 const userSays = [];
-let time = 30;
+let time = 10;
 let timerId;
 
 function generateNumbers(){
@@ -43,7 +43,6 @@ function clearFields(){
 
 function formSubmitHandler(event){
     event.preventDefault();
-    validateFields();
     for(let i = 0; i<simonSays.length; i++){ 
         const inputElem = document.querySelector(`#number-${i+1}`);
         const currentValue = inputElem.valueAsNumber; 
@@ -55,10 +54,35 @@ function formSubmitHandler(event){
             userSays.push(Number(currentValue));
         }
     }
+    if(validateFields() === -1){
+        return;
+    }
     checkNumbers();
 }
 function validateFields(){
-
+    let userError = false;
+    if(userSays.length !== simonSays.length){
+        for(let i = 0; i < simonSays.length; i++){
+            const inputElem = document.querySelector(`#number-${i+1}`);
+            const currentValue = inputElem.valueAsNumber;
+            const inputErrorElem = document.querySelector(`#number-${i+1}-help`);
+            if(isNaN(currentValue)){
+                inputErrorElem.classList.contains("d-none") && inputErrorElem.classList.remove("d-none");
+                inputErrorElem.innerText = "Non hai inserito un valore, anche se non lo ricordi, tanto vale tentare!";
+                userError = true;
+            }
+            else{
+                !inputErrorElem.classList.contains("d-none") && inputErrorElem.classList.remove("d-none");
+                inputErrorElem.innerText = "";
+            }
+        }
+    }
+    else{
+        
+    }
+    if(userError){
+        return -1;
+    }
 }
 
 function checkNumbers(){
