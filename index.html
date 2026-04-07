@@ -10,7 +10,26 @@
 <body>
     <div class="container-lg">
         <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-lg-6"></div>
+            <div class="col-12 col-lg-6">
+                <div class="container form-wrapper d-flex flex-column justify-content-center align-items-center">
+                    <h2 class="form-title">Tempo Rimanente:</h2>
+                    <p class="h2 timer"></p>
+                    <form action="" class="form-control text-center">
+                        <p>Ricorda i numeri che vedi scritti, e reinseriscili quando scadrà il timer. L'ordine non è importante</p>
+                        <div class="d-flex column-gap-5">
+                            <input type="number" id="number-1" class="form-control">
+                            <input type="number" id="number-2" class="form-control">
+                            <input type="number" id="number-3" class="form-control">
+                            <input type="number" id="number-4" class="form-control">
+                            <input type="number" id="number-5" class="form-control">
+                        </div>
+                        <button class="btn btn-primary my-4" type="submit">Prova!</button>
+                        <div class="result d-none">
+                            <p>Hai indovinato</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <script src="./scripts/functions.js"></script>
