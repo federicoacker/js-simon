@@ -43,6 +43,7 @@ function clearFields(){
 
 function formSubmitHandler(event){
     event.preventDefault();
+    validateFields();
     for(let i = 0; i<simonSays.length; i++){ 
         const inputElem = document.querySelector(`#number-${i+1}`);
         const currentValue = inputElem.valueAsNumber; 
@@ -55,6 +56,9 @@ function formSubmitHandler(event){
         }
     }
     checkNumbers();
+}
+function validateFields(){
+
 }
 
 function checkNumbers(){

@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS-Simon</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="./style/index.css">
 </head>
+
 <body>
     <div class="container-lg">
         <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-10">
                 <div class="container form-wrapper d-flex flex-column justify-content-center align-items-center">
                     <h2 class="form-title">Tempo Rimanente:</h2>
                     <p class="h2 timer">30</p>
                     <form action="" class="form-control text-center">
-                        <p>Ricorda i numeri che vedi scritti, e reinseriscili quando scadrà il timer. L'ordine non è importante</p>
-                        <div class="d-flex column-gap-5">
-                            <input type="number" id="number-1" class="form-control">
-                            <input type="number" id="number-2" class="form-control">
-                            <input type="number" id="number-3" class="form-control">
-                            <input type="number" id="number-4" class="form-control">
-                            <input type="number" id="number-5" class="form-control">
+                        <p>Ricorda i numeri che vedi scritti, e reinseriscili quando scadrà il timer. L'ordine non è
+                            importante</p>
+                        <div class="d-flex column-gap-1">
+                            <div class="flex-grow-0">
+                                <input type="number" id="number-1" class="form-control"
+                                    aria-describedby="number-1-help">
+                                <div id="number-1-help d-none"></div>
+                            </div>
+                            <div class="flex-grow-0">
+                                <input type="number" id="number-2" class="form-control"
+                                    aria-describedby="number-2-help">
+                                <div id="number-2-help d-none"></div>
+                            </div>
+                            <div class="flex-grow-0">
+                                <input type="number" id="number-3" class="form-control"
+                                    aria-describedby="number-3-help">
+                                <div id="number-3-help d-none"></div>
+                            </div>
+                            <div class="flex-grow-0">
+                                <input type="number" id="number-4" class="form-control"
+                                    aria-describedby="number-4-help">
+                                <div id="number-4-help d-none"></div>
+                            </div>
+                            <div class="flex-grow-0">
+                                <input type="number" id="number-5" class="form-control"
+                                    aria-describedby="number-5-help">
+                                <div id="number-5-help d-none"></div>
+                            </div>
                         </div>
                         <button class="btn btn-primary my-4" type="submit">Prova!</button>
                         <div class="result d-none">
@@ -34,6 +58,9 @@
     </div>
     <script src="./scripts/functions.js"></script>
     <script src="./scripts/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
