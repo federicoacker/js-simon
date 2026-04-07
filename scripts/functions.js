@@ -1,5 +1,7 @@
 const simonSays = [];
 const userSays = [];
+let time = 30;
+let timerId;
 
 function generateNumbers(){
     simonSays.length = 0;
@@ -14,6 +16,28 @@ function generateNumbers(){
         const currentValue = simonSays[i];
         const inputElem = document.querySelector(`#number-${i+1}`);
         inputElem.value=currentValue;
+    }
+    startTimer();
+}
+
+function timerHandler(){
+    const timerElem = document.querySelector(".timer");
+    timerElem.innerText = --time;
+    if(time === 0){
+        timerElem.innerText = 0;
+        clearInterval(timerId);
+        clearFields();
+    }
+}
+
+function startTimer(){
+    timerId = setInterval(timerHandler, 1 * 1000);
+}
+
+function clearFields(){
+    for(let i = 0; i < simonSays.length; i++){
+        const inputElem = document.querySelector(`#number-${i+1}`);
+        inputElem.value = "";
     }
 }
 
@@ -44,4 +68,12 @@ function checkNumbers(){
     const resultElem = document.querySelector(".result");
     resultElem.classList.remove("d-none");
     resultElem.children[0].innerText = `Hai indovinato ${userRight.length} numeri! (${userRight.join(", ")})`;
+    resetField();
+}
+
+function resetField(){
+    const timerElem = document.querySelector(".timer");
+    time = 30;
+    timerElem.value = time;
+    generateNumbers();
 }
