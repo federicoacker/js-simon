@@ -85,14 +85,20 @@ function validateFields(){
         let equalFound = false;
         for(let i = 0; i < userSays.length ; i++){
             const currentValue = userSays[i];
-            for(let j = i+1; j<userSays.length && !equalFound; j++){
+            console.log("ciclo " + i);
+            for(let j = i+1; j<=userSays.length && !equalFound; j++){
+                if(i+1===userSays.length){
+                    j = 0;
+                }
                 const checkingValue = userSays[j];
-                const inputErrorElem = document.querySelector(`#number-${j}-help`);
+                const inputErrorElem = document.querySelector(`#number-${i+1}-help`);
+                console.log(`valore corrente: ${currentValue} controllando: ${checkingValue}`);
                 if(currentValue === checkingValue){
                     equalFound = true;
                     inputErrorElem.classList.contains("d-none") && inputErrorElem.classList.remove("d-none");
                     inputErrorElem.innerText = "Hai inserito 2 o più volte lo stesso numero";
                     userError = true;
+                    console.log(`trovato uguale valore corrente: ${currentValue} controllando: ${checkingValue}`);
                 }
                 else{
                     !inputErrorElem.classList.contains("d-none") && inputErrorElem.classList.add("d-none");
@@ -100,6 +106,7 @@ function validateFields(){
                 }
             }
             equalFound = false;
+            
         }
     }
     if(userError){
