@@ -83,12 +83,14 @@ function validateFields(){
     }
     else{
         let equalFound = false;
+        let isWrapped = false;
         for(let i = 0; i < userSays.length ; i++){
             const currentValue = userSays[i];
             console.log("ciclo " + i);
             for(let j = i+1; j<=userSays.length && !equalFound; j++){
-                if(i+1===userSays.length){
+                if(i+1===userSays.length && !isWrapped){
                     j = 0;
+                    isWrapped = true;
                 }
                 const checkingValue = userSays[j];
                 const inputErrorElem = document.querySelector(`#number-${i+1}-help`);
