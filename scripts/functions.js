@@ -92,6 +92,9 @@ function validateFields(){
                     j = 0;
                     isWrapped = true;
                 }
+                if(j===userSays.length-1 && isWrapped){
+                    break;
+                }
                 const checkingValue = userSays[j];
                 const inputErrorElem = document.querySelector(`#number-${i+1}-help`);
                 console.log(`valore corrente: ${currentValue} controllando: ${checkingValue}`);
