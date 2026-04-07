@@ -1,3 +1,4 @@
+const btnElem = document.querySelector("form button");
 const simonSays = [];
 const userSays = [];
 let time = 10;
@@ -27,10 +28,12 @@ function timerHandler(){
         timerElem.innerText = 0;
         clearInterval(timerId);
         clearFields();
+        btnElem.disabled=false;
     }
 }
 
 function startTimer(){
+    btnElem.disabled=true;
     timerId = setInterval(timerHandler, 1 * 1000);
 }
 
@@ -43,6 +46,7 @@ function clearFields(){
 
 function formSubmitHandler(event){
     event.preventDefault();
+    userSays.length = 0;
     for(let i = 0; i<simonSays.length; i++){ 
         const inputElem = document.querySelector(`#number-${i+1}`);
         const currentValue = inputElem.valueAsNumber; 
@@ -72,13 +76,31 @@ function validateFields(){
                 userError = true;
             }
             else{
-                !inputErrorElem.classList.contains("d-none") && inputErrorElem.classList.remove("d-none");
+                !inputErrorElem.classList.contains("d-none") && inputErrorElem.classList.add("d-none");
                 inputErrorElem.innerText = "";
             }
         }
     }
     else{
-        
+        let equalFound = false;
+        for(let i = 0; i < userSays.length ; i++){
+            const currentValue = userSays[i];
+            for(let j = i+1; j<userSays.length && !equalFound; j++){
+                const checkingValue = userSays[j];
+                const inputErrorElem = document.querySelector(`#number-${j}-help`);
+                if(currentValue === checkingValue){
+                    equalFound = true;
+                    inputErrorElem.classList.contains("d-none") && inputErrorElem.classList.remove("d-none");
+                    inputErrorElem.innerText = "Hai inserito 2 o più volte lo stesso numero";
+                    userError = true;
+                }
+                else{
+                    !inputErrorElem.classList.contains("d-none") && inputErrorElem.classList.add("d-none");
+                    inputErrorElem.innerText = "";
+                }
+            }
+            equalFound = false;
+        }
     }
     if(userError){
         return -1;
@@ -101,7 +123,7 @@ function checkNumbers(){
 
 function resetField(){
     const timerElem = document.querySelector(".timer");
-    time = 30;
+    time = 10;
     timerElem.value = time;
     generateNumbers();
 }
