@@ -104,7 +104,7 @@ function notifyError(index, flag, error="") {
 }
 
 //Funzione che controlla quali field sono vuote
-function checkEmpty(){
+function checkEmpty() {
     let userError = false; // la flag true o false che verrà ritornata alla fine di questa funzione
     for (let i = 0; i < simonSays.length; i++) { // Scorriamo l'array, in realtà, sempre perché sappiamo che il numero di input è uguale al numero di valori generati
             const inputElem = document.querySelector(`#number-${i + 1}`); // Agganciamoci all'input i-esimo + 1 (perché gli indici negli id li ho fatti partire da 1)
